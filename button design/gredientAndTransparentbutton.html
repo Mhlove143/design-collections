@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient to Transparent Button</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Custom animation for smooth gradient transition */
+    @keyframes gradientToTransparent {
+      0% {
+        background: linear-gradient(90deg, #F8F093, #B98B44, transparent, transparent);
+      }
+      100% {
+        background: transparent;
+      }
+    }
+
+    /* Default button styling */
+    .hover-bg-animation {
+      position: relative;
+      background: linear-gradient(90deg, #F8F093, #B98B44); /* Initial gradient */
+      color: black;
+      font-weight: bold;
+      padding: 0.5rem 1.5rem; /* py-2 px-6 */
+      border: 2px solid #FFD700; /* border-yellow-500 */
+      border-radius: 9999px; /* rounded-full */
+      transition: all 0.5s ease-in-out; /* Smooth transition */
+    }
+
+    /* Hover effect */
+    .hover-bg-animation:hover {
+      animation: gradientToTransparent 0.5s ease-in-out forwards;
+      color: white; /* hover:text-white */
+    }
+
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-800">
+  <!-- Button -->
+  <button class="hover-bg-animation">
+    Hover me
+  </button>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Gradient Button</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Custom animation for smooth gradient transition */
+    @keyframes gradientToTransparent {
+      0% {
+        background: linear-gradient(90deg, #F8F093, #B98B44, transparent, transparent);
+      }
+      100% {
+        background: transparent;
+      }
+    }
+
+    /* Hover animation */
+    .hover-bg-animation {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hover-bg-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #F8F093, #B98B44, transparent, transparent);
+      transition: left 0.5s ease;
+    }
+
+    .hover-bg-animation:hover::before {
+      left: 100%;
+    }
+
+    .hover-bg-animation:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-800">
+  <!-- Button -->
+  <button class="text-black font-bold py-2 px-6 border border-yellow-500 rounded-full 
+                 transition-all duration-500 ease-in-out hover-bg-animation">
+    Hover me
+  </button>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Button Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Custom animation for background gradient */
+    .hover-bg-slide {
+      background: linear-gradient(90deg, #F8F093, #B98B44);
+      background-size: 200%;
+      transition: background-position 0.5s ease-in-out;
+    }
+
+    .hover-bg-slide:hover {
+      background-position: -100% 0;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-800">
+  <!-- Button -->
+  <button class="text-black font-bold py-2 px-6 border border-yellow-500 rounded-full 
+                 bg-gradient-to-r from-yellow-300 to-yellow-600 
+                 hover:text-white transition-all duration-500 ease-in-out 
+                 hover-bg-slide">
+    Hover me
+  </button>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Button Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Custom animation for background gradient */
+    .hover-bg-slide {
+      background: linear-gradient(90deg, #F8F093, #B98B44);
+      background-size: 200%;
+      transition: background-position 0.5s ease-in-out;
+    }
+
+    .hover-bg-slide:hover {
+      background-position: -100% 0;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-800">
+  <!-- Button -->
+  <button class="text-black font-bold py-2 px-6 border border-yellow-500 rounded-full 
+                 bg-gradient-to-r from-yellow-300 to-yellow-600 
+                 hover:text-white transition-all duration-500 ease-in-out 
+                 hover-bg-slide">
+    Hover me
+  </button>
+</body>
+</html>

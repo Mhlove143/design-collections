@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: transparent;
+            height: 100%;
+            overflow: hidden;
+            /* Hide overflow on the body to prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* Align items at the top */
+        }
+
+        .accordion-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: flex-start;
+            /* Align columns to the top */
+        }
+
+        .column {
+            flex: 1;
+            max-width: 48%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            /* Add space between items */
+        }
+
+        .accordion {
+            background-color: #ffffff;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            border: 1px solid #000000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Set a fixed height for the accordion header */
+        .accordion-header {
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 6px 15px;
+            /* Updated padding */
+            text-align: left;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            height: 60px;
+            /* Fixed height for the title box */
+        }
+
+        .accordion-header:hover {
+            background-color: #f1f1f1;
+        }
+
+        .accordion-header span.toggle-icon {
+            font-size: 1.5rem;
+            color: #000000;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            padding: 0 15px;
+            background-color: #fff;
+            display: block;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            overflow-y: auto;
+            /* Added for scroll system */
+            max-height: 300px;
+            /* Added to set specific scroll height */
+        }
+
+        .accordion-content.open {
+            max-height: 300px;
+            /* Ensure enough height for scrollable content */
+            padding: 15px;
+        }
+
+        .accordion-header.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+
+    <!-- Add FontAwesome CDN link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        function toggleAccordion(index) {
+            const allContents = document.querySelectorAll('.accordion-content');
+            const currentContent = document.getElementById(`section${index + 1}`);
+            const header = document.querySelectorAll('.accordion-header')[index];
+            const icon = header.querySelector('.toggle-icon');
+
+            // Close all other open sections
+            allContents.forEach((content, i) => {
+                if (content !== currentContent) {
+                    content.classList.remove('open');
+                    document.querySelectorAll('.accordion-header')[i].classList.remove('open');
+                    document.querySelectorAll('.accordion-header')[i].querySelector('.toggle-icon').classList.replace('fa-caret-up', 'fa-caret-down');
+                }
+            });
+
+            // Toggle the current section
+            currentContent.classList.toggle('open');
+            header.classList.toggle('open');
+            if (currentContent.classList.contains('open')) {
+                icon.classList.replace('fa-caret-down', 'fa-caret-up');
+            } else {
+                icon.classList.replace('fa-caret-up', 'fa-caret-down');
+            }
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion with Caret</title>
+</head>
+
+<body>
+    <div class="accordion-container">
+        <div class="column">
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(0)">
+                    Kök <span class="toggle-icon fa-solid fa-caret-down"></span>
+                </button>
+                <div class="accordion-content" id="section1">
+                    <p>Utvändig avtorkning av köksluckor och skåp.<br>
+                        Rengöring av kakel och diskbänk samt putsning av diskhon.<br>
+                        Utvändig avtorkning av kyl och frys.<br>
+                        Utvändig avtorkning av ugn och mikro.<br>
+                        Avtorkning av fläkten.<br>
+                        Soptunnan töms och avtorkning av sopskåpet.<br>
+                        Avtorkning av fria ytor så som bänkar, hyllor, bord och fönsterbrädor.<br>
+                        Dammtorkning av lister och eluttag.<br>
+                        Putsning av speglar och glaspartier (observera att detta inte inkluderar fönster).<br>
+                        Dammsugning av golv samt eventuell matta.<br>
+                        Moppning av golvet.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(1)">
+                    Badrum <span class="toggle-icon fa-solid fa-caret-down"></span>
+                </button>
+                <div class="accordion-content" id="section2">
+                    <p>Avtorkning av badrumsskåp och luckor (utvändigt).<br>
+                        Utvändig avtorkning av tvättmaskin och torktumlare.<br>
+                        Eventuella fläckar på kaklet tvättas bort.<br>
+                        Putsning av speglar och glaspartier (inte putsning av fönster).<br>
+                        Avtorkning av kakel ovanför handfatet.<br>
+                        Rengöring av dusch och handfat.<br>
+                        Rengöring av toalett.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(2)">
+                    Viktig information om din hemstädning <span class="toggle-icon fa-solid fa-caret-down"></span>
+                </button>
+                <div class="accordion-content" id="section3">
+                    <p>Städmedel/material som du behöver ha hemma:<br>
+                        - Allrengöring (vi rekommenderar Grumme såpa citron).<br>
+                        - Kök-/badrumsrengöring för kalkborttagning.<br>
+                        - Fönsterputsmedel.<br>
+                        - Mikrofiberdukar, minst 6 stycken, tvättade i 60 grader.<br>
+                        - Dammsugare och mopp.<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(3)">
+                    Annan bra information om hemstädning <span class="toggle-icon fa-solid fa-caret-down"></span>
+                </button>
+                <div class="accordion-content" id="section4">
+                    <p>Priset är baserat på normal nedsmutsning.<br>
+                        Vi kan hjälpa till med klädvikning och disk, men kontakta oss för extra tid.<br>
+                        Om du är hemma under städningen, vänligen låt vår personal arbeta ostört.<br>
+                        Alla hemstädningar sker utan bindningstid.<br>
+                        Avbokning sker senast 48 timmar innan bokad tid.<br>
+                        Fakturan skickas efter genomförd städning med 10 dagars betalningsvillkor.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

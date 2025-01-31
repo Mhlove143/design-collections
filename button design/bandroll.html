@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandrol</title>
+    <style>
+        @keyframes slide {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .bandrol-container {
+            background-color: #f39c12;
+            width: 100%;
+            padding: 20px 0;
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .bandrol {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+            animation: slide 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="bandrol-container">
+        <div class="bandrol">
+            আপনার বিজ্ঞাপন এখানে
+        </div>
+    </div>
+</body>
+</html>

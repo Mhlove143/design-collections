@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Button Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Custom animation for background gradient */
+    .hover-bg-slide {
+      background: linear-gradient(90deg, #F8F093, #B98B44, transparent, transparent);
+      background-size: 200%;
+      transition: background-position 0.5s ease-in-out;
+    }
+
+    .hover-bg-slide:hover {
+      background-position: -100% 0;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-800">
+  <!-- Button -->
+  <button class="text-black font-bold py-2 px-6 border border-yellow-500 rounded-full 
+                 bg-gradient-to-r from-yellow-300 to-yellow-600 
+                 hover:text-white transition-all duration-500 ease-in-out 
+                 hover-bg-slide">
+    Hover me
+  </button>
+</body>
+</html>

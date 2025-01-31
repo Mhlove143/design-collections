@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipping Card</title>
+    <style>
+        /* Card container */
+        .card {
+            width: 360px;
+            height: 530px;
+            perspective: 1000px; /* Add perspective for 3D effect */
+            cursor: pointer;
+        }
+
+        /* The actual card element */
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d; /* Ensures both sides are visible during the flip */
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Front side of the card */
+        .card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(0, 0, 0, 0.5);
+            backface-visibility: hidden; /* Prevents the back side from being visible */
+            border-radius: 15px;
+            padding: 8px;
+        }
+
+        /* Back side of the card */
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #9c4545; /* You can change the color or add a background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 15px;
+            backface-visibility: hidden; /* Prevents the front side from being visible when flipped */
+            transform: rotateY(180deg);
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(0, 0, 0, 0.5); /* Ensures the back is flipped by default */
+        }
+
+        /* Card title and subtitle styling */
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-subtitle {
+            font-size: 16px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-inner">
+            <!-- Front of the card -->
+            
+            <img src="https://img.freepik.com/free-photo/cheerful-couple-make-okay-gesture-have-positive-expressions_273609-17322.jpg" alt="" class="card-front"></img>
+
+            <!-- Back of the card -->
+            <div class="card-back">
+                <div class="card-info">
+                    <h2 class="card-title">Title Here</h2>
+                    <p class="card-subtitle">Subtitle Here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
