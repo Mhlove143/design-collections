@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Field</title>
+    <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* Basic styling for search container */
+        .search {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Styling for the input field */
+        .search .input {
+            background-color: aqua;
+            border: 0;
+            font-size: 16px;
+            color: black;
+            padding: 15px;
+            height: 40px;
+            width: 40px; /* Small width initially */
+            transition: width 0.8s ease, padding-left 0.8s ease; /* Smooth transition */
+            border-radius: 25px;
+            outline: none;
+            padding-left: 40px; /* Space for the icon */
+            opacity: 0; /* Hide input text until hover */
+        }
+
+        /* Styling for the button */
+        .search .btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            position: absolute;
+            left: 12px; /* Position the icon inside the input */
+            pointer-events: none; /* Prevent interaction with the icon */
+        }
+
+        /* When hovered, expand the input and show text */
+        .search:hover .input {
+            width: 200px; /* Expanded width */
+            opacity: 1; /* Show text */
+            padding-left: 50px; /* Increase left padding to give space for placeholder */
+        }
+
+        /* Icon inside the input field */
+        .search .btn ion-icon {
+            background-color: aqua;
+            border-radius: 25px;
+            padding: 15px;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="search">
+        <input type="text" class="input" >
+        <button class="btn">
+            <ion-icon name="search-outline"></ion-icon>
+        </button>
+    </div>
+
+</body>
+</html>
