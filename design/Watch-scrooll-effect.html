@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch Strap Scroll Animation</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200vh; /* Increased height to allow scrolling */
+      background-color: #f7f7f7;
+    }
+
+    /* Watch Container */
+    .watch-container {
+      position: relative;
+      width: 500px;
+      height: 100px;
+    }
+
+    /* Watch */
+    .watch {
+      position: absolute;
+      left: 50px;
+      top: 10px;
+      width: 80px;
+      height: 80px;
+      background-color: black;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    /* Watch Strap */
+    .watch-strap {
+      position: absolute;
+      width: 400px;
+      height: 30px;
+      background-color: black;
+      left: -400px;
+      top: 35px;
+      transition: transform 1s ease-out, opacity 1s ease-out;
+      opacity: 0;
+    }
+
+    /* Class to apply when scrolling */
+    .watch-strap.active {
+      transform: translateX(400px);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="watch-container">
+    <div class="watch-strap"></div>
+    <div class="watch"></div>
+  </div>
+
+  <script>
+    // JavaScript to handle the scroll effect
+    const watchStrap = document.querySelector('.watch-strap');
+
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      const triggerPosition = 100; // Adjust this value to control when the animation starts
+
+      if (scrollPosition > triggerPosition) {
+        watchStrap.classList.add('active');
+      } else {
+        watchStrap.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

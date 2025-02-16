@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <style>
+      /* Custom CSS for fade-out animation */
+      .fade-out {
+        opacity: 0;
+        transition: opacity 2s ease-out;
+      }
+
+      /* Custom CSS for fade-in animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn .5s ease-in;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative h-screen">
+      <!-- Display 1 -->
+      <div id="display-1" class="display-1 absolute bg-[#FFFFFF] z-30 h-full w-8/12 transition-opacity duration-3000">
+        <p class="h-96 w-4/12 absolute left-[90px] bottom-[90px] text-[14px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            <br><br>
+            <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.F </span></p>
+        <img src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702187/mir-mm/yqfbcgiulmj6krovwzun.svg" class="absolute right-0 bottom-[96px] w-5/12" alt="">
+        <div class="absolute left-[50px] bottom-[100px]">
+            <button id="button-1" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400 bg-[#BDEEF8]">01 DIGITAL</button>
+            <button id="button-2" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400">02 DISRUPTIVE</button>
+            <button id="button-3" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400">03 DYNAMIC</button>
+        </div>
+      </div>
+
+      <!-- Display 2 -->
+      <div id="display-2" class="display-2 absolute bg-[#65BCCD] z-20 h-full w-11/12 transition-opacity duration-3000">
+        <p class="h-96 w-4/12 absolute left-[90px] bottom-[90px] text-[14px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            <br><br>
+            <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.F </span></p>
+        <img id="display-2-image" src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702187/mir-mm/euxdt1telz6kha0g0oao.svg" class="absolute right-0 bottom-[96px] w-4/12 transition-all duration-500" alt="">
+        <div class="absolute left-[50px] bottom-[100px]">
+            <button id="button-1" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400">01 DIGITAL</button>
+            <button id="button-2" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400 bg-[#BDEEF8]">02 DISRUPTIVE</button>
+            <button id="button-3" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400 ">03 DYNAMIC</button>
+        </div>
+      </div>
+
+      <!-- Display 3 -->
+      <div id="display-3" class="display-3 absolute bg-[#008FAB] z-10 h-full w-12/12 transition-opacity duration-3000">
+        <p class="h-96 w-4/12 absolute left-[90px] bottom-[90px] text-[14px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            <br><br>
+            <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.F </span></p>
+        <img id="display-3-image" src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702186/mir-mm/ccpeusgzq7ghnanl7enn.svg" class="absolute right-0 bottom-[96px] w-1/12 transition-all duration-500" alt="">
+        <div class="absolute left-[50px] bottom-[100px]">
+            <button id="button-1" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400">01 DIGITAL</button>
+            <button id="button-2" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400">02 DISRUPTIVE</button>
+            <button id="button-3" class="py-2 rounded-lg px-8 font-bold text-l text-gray-400 bg-[#BDEEF8]">03 DYNAMIC</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to handle display logic based on button clicks
+      function handleButtonClick(buttonId) {
+        const display1 = document.getElementById('display-1');
+        const display2 = document.getElementById('display-2');
+        const display3 = document.getElementById('display-3');
+        const display2Image = document.getElementById('display-2-image');
+        const display3Image = document.getElementById('display-3-image');
+
+        // Function to hide a display with fade-out animation
+        function hideWithAnimation(element) {
+          if (!element.classList.contains('hidden')) {
+            element.classList.add('fade-out'); // Add fade-out animation
+            setTimeout(() => {
+              element.classList.add('hidden'); // Hide the element after animation
+            }, 500); // Match the duration of the animation (0.5s)
+          }
+        }
+
+        // Function to show a display with fade-in animation
+        function showWithAnimation(element) {
+          element.classList.remove('hidden', 'fade-out');
+          element.classList.add('fade-in'); // Add fade-in animation
+          setTimeout(() => {
+            element.classList.remove('fade-in'); // Remove fade-in class after animation
+          }, 2000); // Match the duration of the animation (2s)
+        }
+
+        // Reset all buttons' background color
+        document.querySelectorAll('button').forEach(button => {
+          button.classList.remove('active-button'); // Remove active class
+        });
+
+        // Set active button's background color
+        const activeButton = document.getElementById(buttonId);
+        activeButton.classList.add('active-button'); // Add active class
+
+        // Handle Button 1
+        if (buttonId === 'button-1') {
+          showWithAnimation(display1);
+          showWithAnimation(display2);
+          showWithAnimation(display3);
+          display2Image.classList.remove('w-7/12'); // Reset image width for Display 2
+          display3Image.classList.remove('w-7/12'); // Reset image width for Display 3
+        }
+        // Handle Button 2
+        else if (buttonId === 'button-2') {
+          hideWithAnimation(display1); // Hide Display 1 with animation
+          showWithAnimation(display2); // Show Display 2 with animation
+          showWithAnimation(display3); // Show Display 3 with animation
+          display2Image.classList.add('w-7/12'); // Change image width to w-7/12 for Display 2
+          display3Image.classList.remove('w-7/12'); // Reset image width for Display 3
+        }
+        // Handle Button 3
+        else if (buttonId === 'button-3') {
+          hideWithAnimation(display1); // Hide Display 1 with animation
+          hideWithAnimation(display2); // Hide Display 2 with animation
+          showWithAnimation(display3); // Show Display 3 with animation
+          display2Image.classList.remove('w-7/12'); // Reset image width for Display 2
+          display3Image.classList.add('w-7/12'); // Change image width to w-7/12 for Display 3
+        }
+      }
+
+      // Add event listeners to buttons
+      document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => handleButtonClick(button.id));
+      });
+    </script>
+  </body>
+</html>
