@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font CDN Example</title>
+  <style>
+    @font-face {
+      font-family: 'Citrus Gothic Rough';
+      src: url('https://cdn.jsdelivr.net/gh/samiunarno/font-cdn/CitrusGothicRough-Regular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/samiunarno/font-cdn/CitrusGothicRough-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Citrus Gothic Rough', sans-serif;
+      font-size: 20px;
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>This text is using Citrus Gothic Rough</h1>
+  <p>If the font loads correctly, this text should appear in the custom font.</p>
+</body>
+
+</html>
