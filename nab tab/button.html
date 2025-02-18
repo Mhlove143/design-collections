@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Button</title>
+    <style>
+        .styled-button {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ff6b6b; /* Red text */
+            font-size: 16px;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+        .styled-button::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 12px; /* Default under-text background */
+            background-color: #b8f3ff; /* Light blue */
+            z-index: -1;
+            transition: height 0.6s ease-in-out;
+        }
+
+        .styled-button:hover::after {
+            height: 100%; /* Full background on hover */
+            background-color: #ff6b6b; /* Red background on hover */
+        }
+
+        .styled-button:hover {
+            color: white; /* White text on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" class="styled-button">Send Your Work</a>
+
+</body>
+</html>
