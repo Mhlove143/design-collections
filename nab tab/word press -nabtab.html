@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Citrus Gothic Rough';
+            src: url('https://cdn.jsdelivr.net/gh/samiunarno/font-cdn/CitrusGothicRough-Regular.woff2') format('woff2');
+            /* url('https://cdn.jsdelivr.net/gh/samiunarno/font-cdn/CitrusGothicRough-Regular.woff') format('woff'); */
+            
+        }
+
+
+        .Citrus-font {
+            font-family: 'Citrus Gothic Rough', sans-serif;
+            text-transform: capitalize;
+        }
+
+        /* Custom CSS for fade-out animation */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 2s ease-out;
+        }
+
+        /* Custom CSS for fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn .5s ease-in;
+        }
+
+        .tab-link {
+            transition: background-color 0.3s ease;
+            /* Smooth transition for background color */
+        }
+
+        .tab-link.bg-active {
+            background-color: #BDEEF8;
+            /* Active background color */
+        }
+    </style>
+</head>
+
+<body >
+
+
+    <div class="relative h-screen hidden lg:block  ">
+        <!-- <img class="absolute left-[30%]" src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739707103/mir-mm/v5q4rgjxrnpl6giydier.svg" alt=""> -->
+        <div class="h-56 w-48 bg-white/30 backdrop-blur-md border border-white absolute z-40 left-[35%] mt-10 "></div>
+        <!-- Display 1 -->
+        <div id="display-1" class="display-1 absolute bg-[#FFFFFF] z-30 h-full w-8/12 transition-opacity duration-3000">
+            <p class="absolute text-sm top-[20%] left-[7%] underline decoration-blue-500 leading-tight text-black" style="text-underline-offset: 8px;">
+                LOREM IPSUM
+              </p>
+            <h1 class="absolute Citrus-font top-[24%] left-[7%] text-5xl text-red-400">DIGITAL</h1>
+            <p class=" absolute Citrus-fon w-4/12 top-[35%] left-[7%]  text-[14px] ">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+                nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget
+                condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia
+                nostra, per inceptos himenaeos.
+                <br><br>
+                <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex.
+                    Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis
+                    diam sit amet lacinia. Aliquam in elementum tellus.F </span>
+            </p>
+            <img src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702187/mir-mm/yqfbcgiulmj6krovwzun.svg"
+                class="absolute right-0 bottom-[96px] w-5/12" alt="">
+            <div class="absolute left-[50px] bottom-[100px]">
+                <button id="button-1" class="py-2 px-8 font-bold text-l text-[#006B80] bg-[#BDEEF8]">01
+                    DIGITAL</button>
+                <button id="button-2" class="py-2  px-8 font-bold text-l text-gray-300">02 DISRUPTIVE</button>
+                <button id="button-3" class="py-2  px-8 font-bold text-l text-gray-300">03 DYNAMIC</button>
+            </div>
+        </div>
+
+        <!-- Display 2 -->
+        <div id="display-2"
+            class="display-2 absolute bg-[#65BCCD] z-20 h-full w-11/12 transition-opacity duration-3000">
+            <p class="absolute text-sm top-[20%] left-[7%] underline decoration-red-500 leading-tight text-white" style="text-underline-offset: 8px;">
+                LOREM IPSUM
+              </p>
+            <h1 class="absolute Citrus-font top-[24%] left-[7%] text-5xl text-[#008FAB]">DISRUPTIVE</h1>
+            <p class=" absolute Citrus-fon w-4/12 top-[35%] left-[7%]  text-[14px] text-white">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+                nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget
+                condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia
+                nostra, per inceptos himenaeos.
+                <br><br>
+                <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex.
+                    Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis
+                    diam sit amet lacinia. Aliquam in elementum tellus.F </span>
+            </p>
+            <img id="display-2-image"
+                src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702187/mir-mm/euxdt1telz6kha0g0oao.svg"
+                class="absolute right-0 bottom-[96px] w-4/12 transition-all duration-500" alt="">
+            <div class="absolute left-[50px] bottom-[100px]">
+                <button id="button-1" class="py-2  px-8 font-bold text-l text-gray-200">01 DIGITAL</button>
+                <button id="button-2" class="py-2  px-8 font-bold text-l text-[#006B80] bg-[#BDEEF8] ">02
+                    DISRUPTIVE</button>
+                <button id="button-3" class="py-2  px-8 font-bold text-l text-gray-200 ">03 DYNAMIC</button>
+            </div>
+        </div>
+
+        <!-- Display 3 -->
+        <div id="display-3"
+            class="display-3 absolute bg-[#008FAB] z-10 h-full w-12/12 transition-opacity duration-3000">
+            <p class="absolute text-sm top-[20%] left-[7%] underline decoration-red-500 leading-tight text-white" style="text-underline-offset: 8px;">
+                LOREM IPSUM
+              </p>
+              
+            <h1 class="absolute Citrus-font top-[24%] left-[7%] text-5xl text-[#65BCCD]">DYNAMIC</h1>
+            <p class=" absolute Citrus-fon w-4/12 top-[35%] left-[7%]  text-[14px] text-white">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+                nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget
+                condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia
+                nostra, per inceptos himenaeos.
+                <br><br>
+                <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex.
+                    Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis
+                    diam sit amet lacinia. Aliquam in elementum tellus.F </span>
+            </p>
+            <img id="display-3-image"
+                src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702186/mir-mm/ccpeusgzq7ghnanl7enn.svg"
+                class="absolute right-0 bottom-[96px] w-1/12 transition-all duration-500" alt="">
+            <div class="absolute left-[50px] bottom-[100px]">
+                <button id="button-1" class="py-2  px-8 font-bold text-l text-gray-200">01 DIGITAL</button>
+                <button id="button-2" class="py-2  px-8 font-bold text-l text-gray-200">02 DISRUPTIVE</button>
+                <button id="button-3" class="py-2  px-8 font-bold text-l text-[#006B80] bg-[#BDEEF8]">03
+                    DYNAMIC</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="w-full sm:block lg:hidden">
+        <div class="relative right-0">
+            <ul class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md" role="list">
+                <li class="z-30 flex-auto text-center">
+                    <a id="dashboard-tab"
+                        class="tab-link z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer font-bold bg-inherit"
+                        data-tab-target="dashboard" role="tab" aria-selected="true">
+                        01 DIGITAL
+                    </a>
+                </li>
+                <li class="z-30 flex-auto text-center">
+                    <a id="profile-tab"
+                        class="tab-link z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer font-bold bg-inherit"
+                        data-tab-target="profile" role="tab" aria-selected="false">
+                        02 DISRUPTIVE
+                    </a>
+                </li>
+                <li class="z-30 flex-auto text-center">
+                    <a id="settings-tab"
+                        class="tab-link z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer font-bold bg-inherit"
+                        data-tab-target="settings" role="tab" aria-selected="false">
+                        03 DYNAMIC
+                    </a>
+                </li>
+            </ul>
+
+            <div data-tab-content class="">
+                <div id="dashboard" class="tab-content" role="tabpanel">
+                    <div class="bg-[#ffffff]">
+                        <img src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702187/mir-mm/yqfbcgiulmj6krovwzun.svg"
+                            class="w-full h-[300px]" alt="">
+                        <p class="text-black font-semibold">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum
+                            est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin
+                            lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
+                            lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                            himenaeos.
+                            <br><br>
+                            <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
+                                rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem.
+                                Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.F </span>
+                        </p>
+                    </div>
+                </div>
+                <div id="profile" class="tab-content hidden opacity-0" role="tabpanel">
+                    <div class="bg-[#65BCCD]">
+                        <img src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702187/mir-mm/euxdt1telz6kha0g0oao.svg"
+                            class="w-full h-[300px]" alt="">
+                        <p class="text-black font-semibold">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum
+                            est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin
+                            lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
+                            lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                            himenaeos.
+                            <br><br>
+                            <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
+                                rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem.
+                                Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.F </span>
+                        </p>
+                    </div>
+                </div>
+                <div id="settings" class="tab-content hidden opacity-0" role="tabpanel">
+                    <div class="bg-[#008FAB]">
+                        <img src="https://res.cloudinary.com/da8drvmd0/image/upload/v1739702186/mir-mm/ccpeusgzq7ghnanl7enn.svg"
+                            class="w-full h-[300px]" alt="">
+                        <p class="text-black font-semibold">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum
+                            est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin
+                            lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
+                            lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                            himenaeos.
+                            <br><br>
+                            <span>Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
+                                rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem.
+                                Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.F </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-active'); // Remove the active background color
+                        t.setAttribute('aria-selected', 'false'); // Update aria-selected attribute
+                    });
+
+                    // Hide all tab contents
+                    tabContents.forEach(content => content.classList.add('hidden', 'opacity-0'));
+
+                    // Add active class to the clicked tab
+                    this.classList.add('bg-active'); // Add the active background color
+                    this.setAttribute('aria-selected', 'true'); // Update aria-selected attribute
+
+                    // Show the corresponding tab content
+                    const target = this.getAttribute('data-tab-target');
+                    document.getElementById(target).classList.remove('hidden', 'opacity-0');
+                });
+            });
+
+            // Set the initial active tab
+            const initialTab = document.getElementById('dashboard-tab');
+            initialTab.classList.add('bg-active');
+            initialTab.setAttribute('aria-selected', 'true'); // Set initial aria-selected attribute
+        });
+    </script>
+
+
+    <script>
+        // Function to handle display logic based on button clicks
+        function handleButtonClick(buttonId) {
+            const display1 = document.getElementById('display-1');
+            const display2 = document.getElementById('display-2');
+            const display3 = document.getElementById('display-3');
+            const display2Image = document.getElementById('display-2-image');
+            const display3Image = document.getElementById('display-3-image');
+
+            // Function to hide a display with fade-out animation
+            function hideWithAnimation(element) {
+                if (!element.classList.contains('hidden')) {
+                    element.classList.add('fade-out'); // Add fade-out animation
+                    setTimeout(() => {
+                        element.classList.add('hidden'); // Hide the element after animation
+                    }, 500); // Match the duration of the animation (0.5s)
+                }
+            }
+
+            // Function to show a display with fade-in animation
+            function showWithAnimation(element) {
+                element.classList.remove('hidden', 'fade-out');
+                element.classList.add('fade-in'); // Add fade-in animation
+                setTimeout(() => {
+                    element.classList.remove('fade-in'); // Remove fade-in class after animation
+                }, 2000); // Match the duration of the animation (2s)
+            }
+
+            // Reset all buttons' background color
+            document.querySelectorAll('button').forEach(button => {
+                button.classList.remove('active-button'); // Remove active class
+            });
+
+            // Set active button's background color
+            const activeButton = document.getElementById(buttonId);
+            activeButton.classList.add('active-button'); // Add active class
+
+            // Handle Button 1
+            if (buttonId === 'button-1') {
+                showWithAnimation(display1);
+                showWithAnimation(display2);
+                showWithAnimation(display3);
+                display2Image.classList.remove('w-7/12'); // Reset image width for Display 2
+                display3Image.classList.remove('w-7/12'); // Reset image width for Display 3
+            }
+            // Handle Button 2
+            else if (buttonId === 'button-2') {
+                hideWithAnimation(display1); // Hide Display 1 with animation
+                showWithAnimation(display2); // Show Display 2 with animation
+                showWithAnimation(display3); // Show Display 3 with animation
+                display2Image.classList.add('w-7/12'); // Change image width to w-7/12 for Display 2
+                display3Image.classList.remove('w-7/12'); // Reset image width for Display 3
+            }
+            // Handle Button 3
+            else if (buttonId === 'button-3') {
+                hideWithAnimation(display1); // Hide Display 1 with animation
+                hideWithAnimation(display2); // Hide Display 2 with animation
+                showWithAnimation(display3); // Show Display 3 with animation
+                display2Image.classList.remove('w-7/12'); // Reset image width for Display 2
+                display3Image.classList.add('w-7/12'); // Change image width to w-7/12 for Display 3
+            }
+        }
+
+        // Add event listeners to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => handleButtonClick(button.id));
+        });
+    </script>
+</body>
+
+</html>
