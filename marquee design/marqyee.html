@@ -22,18 +22,39 @@
         .marquee-content {
             display: flex;
             min-width: 100%;
-            animation: marquee 7s linear infinite;
+            animation: marquee 8s linear infinite;
         }
         .marquee-text {
             flex: none;
             font-weight: bold;
             color: #f97316;
             font-size: 20px;
-            padding: 0 200px; / Equal spacing /
+            padding: 0 200px; /* Equal spacing */
         }
         @keyframes marquee {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
+        }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 768px) {
+            .marquee-text {
+                font-size: 16px; /* Smaller font size for mobile */
+                padding: 0 100px; /* Reduced padding for mobile */
+            }
+            .marquee-content {
+                animation-duration: 6s; /* Faster animation for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .marquee-text {
+                font-size: 14px; /* Even smaller font size for very small screens */
+                padding: 0 50px; /* Further reduced padding */
+            }
+            .marquee-content {
+                animation-duration: 4s; /* Even faster animation for very small screens */
+            }
         }
     </style>
 </head>
