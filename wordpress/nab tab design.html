@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Tabs with Image & Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans text-center m-5">
+    <h2 class="text-2xl font-bold mb-5">Dynamic Tabs with Image & Form</h2>
+
+    <div class="flex flex-col lg:flex-row w-full">
+
+        <!-- Image Section -->
+        <div class="w-full lg:w-1/2">
+            <div class="image-container">
+                <img id="tab-image"
+                    src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740801024/mir-mm/tith-image/etnutpn2rxjcpplqbjin.png"
+                    alt="Tab Image" class="w-full px-0 lg:px-[100px] rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- Buttons and Form Section -->
+        <div class="w-full lg:w-1/2">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 justify-center mb-5">
+                <a id="tab-1"
+                    class="w-full aspect-[4/3] flex flex-col items-center justify-center bg-white text-black rounded"
+                    onclick="changeTab(1)">
+                    <img id="icon-1" class="w-8 h-8"
+                        src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740802879/mir-mm/tith-image/jy3vjvkc5faesu8wopwk.svg"
+                        alt="">
+                    <p class="mt-4">Crown/Inlay</p>
+                </a>
+
+                <a id="tab-2"
+                    class="w-full aspect-[4/3] flex flex-col items-center justify-center bg-white text-black rounded"
+                    onclick="changeTab(2)">
+                    <img id="icon-2" class="w-8 h-8"
+                        src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740806224/mir-mm/tith-image/agxuil7ctgizkz8trgym.svg"
+                        alt="">
+                    <p class="mt-4">Pontic</p>
+                </a>
+                <a id="tab-3"
+                    class="w-full aspect-[4/3] flex flex-col items-center justify-center bg-white text-black rounded"
+                    onclick="changeTab(3)">
+                    <img id="icon-3" class="w-8 h-8"
+                        src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740806552/mir-mm/tith-image/tb0ddiohafyoainzqzeb.svg"
+                        alt="">
+                    <p class="mt-4">Crown Screwed/<br>Custom Abutment</p>
+                </a>
+                <a id="tab-4"
+                    class="w-full aspect-[4/3] flex flex-col items-center justify-center bg-white text-black rounded"
+                    onclick="changeTab(4)">
+                    <img id="icon-4" class="w-8 h-8"
+                        src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740806919/mir-mm/tith-image/ll3djnoivklpfbw2v1ma.svg"
+                        alt="">
+                    <p class="mt-4">Inlay/Onlay/Veneer</p>
+                </a>
+                <a id="tab-5"
+                    class="w-full aspect-[4/3] flex flex-col items-center justify-center bg-white text-black rounded"
+                    onclick="changeTab(5)">
+                    <img id="icon-5" class="w-8 h-8"
+                        src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740807080/mir-mm/tith-image/xxpxxwp8cfe7ynyxhclh.png"
+                        alt="">
+                    <p class="mt-4">Anatomic Full Arch</p>
+                </a>
+                <a id="tab-6"
+                    class="w-full aspect-[4/3] flex flex-col items-center justify-center bg-white text-black rounded"
+                    onclick="changeTab(6)">
+                    <img id="icon-6" class="w-8 h-8"
+                        src="https://res.cloudinary.com/da8drvmd0/image/upload/v1740807232/mir-mm/tith-image/qk6wn8dlv0p6exa3vsnr.svg"
+                        alt="">
+                    <p class="mt-4">Bars/ibar</p>
+                </a>
+            </div>
+
+            <!-- Form Section (Only for Desktop) -->
+            <div class="form-container hidden lg:block mt-5 p-4 border border-gray-300 rounded-lg bg-gray-100" id="tab-form">
+                <form>
+                    <input type="text" placeholder="Enter Name" class="w-full p-2 border border-gray-300 rounded">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Section (Only for Mobile and Tablet) -->
+    <div class="form-container lg:hidden mt-5 p-4 border border-gray-300 rounded-lg bg-gray-100" id="mobile-tab-form">
+        <form>
+            <input type="text" placeholder="Enter Name" class="w-full p-2 border border-gray-300 rounded">
+        </form>
+    </div>
+
+    <script>
+        // Store default icon URLs for each tab
+        const defaultIcons = [
+            "https://res.cloudinary.com/da8drvmd0/image/upload/v1740802879/mir-mm/tith-image/jy3vjvkc5faesu8wopwk.svg",
+            "https://res.cloudinary.com/da8drvmd0/image/upload/v1740806224/mir-mm/tith-image/agxuil7ctgizkz8trgym.svg",
+            "https://res.cloudinary.com/da8drvmd0/image/upload/v1740806552/mir-mm/tith-image/tb0ddiohafyoainzqzeb.svg",
+            "https://res.cloudinary.com/da8drvmd0/image/upload/v1740806919/mir-mm/tith-image/ll3djnoivklpfbw2v1ma.svg",
+            "https://res.cloudinary.com/da8drvmd0/image/upload/v1740807080/mir-mm/tith-image/xxpxxwp8cfe7ynyxhclh.png",
+            "https://res.cloudinary.com/da8drvmd0/image/upload/v1740807232/mir-mm/tith-image/qk6wn8dlv0p6exa3vsnr.svg"
+        ];
+
+        // Active icon URL
+        const activeIconUrl = "https://res.cloudinary.com/da8drvmd0/image/upload/v1740805380/mir-mm/tith-image/mvc3bliq5uf0vg8lqs06.svg";
+
+        function changeTab(tabIndex) {
+            const colors = ["bg-[#8280B7]", "bg-[#C56F96]", "bg-[#EFAA42]", "bg-[#42A1EF]", "bg-[#F37826]", "bg-[#65C05D]"];
+
+            for (let i = 1; i <= 6; i++) {
+                let button = document.getElementById(`tab-${i}`);
+                button.classList.remove(...colors, "text-white"); // Remove previous colors and white text
+                button.classList.add("bg-white", "text-black"); // Reset to default
+
+                let icon = document.getElementById(`icon-${i}`);
+                icon.src = defaultIcons[i - 1]; // Reset icon to default
+            }
+
+            let activeButton = document.getElementById(`tab-${tabIndex}`);
+            activeButton.classList.remove("bg-white", "text-black"); // Remove gray background and black text
+            activeButton.classList.add(colors[tabIndex - 1], "text-white"); // Apply new background and white text
+
+            let activeIcon = document.getElementById(`icon-${tabIndex}`);
+            activeIcon.src = activeIconUrl; // Change icon to active state
+
+            // Change Image
+            let image = document.getElementById("tab-image");
+            let images = [
+                "https://res.cloudinary.com/da8drvmd0/image/upload/v1740801424/mir-mm/tith-image/mvvxfuuobkerfgxtzeub.png",
+                "https://res.cloudinary.com/da8drvmd0/image/upload/v1740806132/mir-mm/tith-image/ompmkocfivnfpjuijttf.png",
+                "https://res.cloudinary.com/da8drvmd0/image/upload/v1740806674/mir-mm/tith-image/p3onpzym7xojijqtj2l8.png",
+                "https://res.cloudinary.com/da8drvmd0/image/upload/v1740807011/mir-mm/tith-image/ztmx6zv1waqlf8qszilk.png",
+                "https://res.cloudinary.com/da8drvmd0/image/upload/v1740807155/mir-mm/tith-image/ntat7samgtaim2vmn4bi.png",
+                "https://res.cloudinary.com/da8drvmd0/image/upload/v1740807331/mir-mm/tith-image/zwgcw4w2z7sgypxgpmee.png"
+            ];
+            image.src = images[tabIndex - 1];
+
+            // Change Form (Desktop)
+            let desktopFormContainer = document.getElementById("tab-form");
+            // Change Form (Mobile/Tablet)
+            let mobileFormContainer = document.getElementById("mobile-tab-form");
+            let forms = [
+                "<form><input type='text' placeholder='Enter Name' class='w-full p-2 border border-gray-300 rounded'></form>",
+                "<form><input type='email' placeholder='Enter Email' class='w-full p-2 border border-gray-300 rounded'></form>",
+                "<form><textarea placeholder='Your Message' class='w-full p-2 border border-gray-300 rounded'></textarea></form>",
+                "<form><input type='password' placeholder='Enter Password' class='w-full p-2 border border-gray-300 rounded'></form>",
+                "<form><button class='w-full bg-green-500 text-white p-2 rounded'>Submit</button></form>",
+                "<form><input type='date' class='w-full p-2 border border-gray-300 rounded'></form>"
+            ];
+            desktopFormContainer.innerHTML = forms[tabIndex - 1];
+            mobileFormContainer.innerHTML = forms[tabIndex - 1];
+        }
+    </script>
+</body>
+
+</html>
