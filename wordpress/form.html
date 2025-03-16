@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Order Billing UI</title>
+</head>
+
+<body class="p-10 bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg px-40">
+        <table class="w-full border-collapse border border-gray-300 mb-4 ">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="p-2 border border-gray-300">Position</th>
+                    <th class="p-2 border border-gray-300">Work Type</th>
+                    <th class="p-2 border border-gray-300">Type of Implant</th>
+                    <th class="p-2 border border-gray-300">Connection</th>
+                    <th class="p-2 border border-gray-300">Angled Channel</th>
+                    <th class="p-2 border border-gray-300">Supra Design</th>
+                    <th class="p-2 border border-gray-300">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border border-gray-300">
+                    <td class="p-2 text-center">21</td>
+                    <td class="p-2 text-center">Crown</td>
+                    <td class="p-2 text-center">-</td>
+                    <td class="p-2 text-center">-</td>
+                    <td class="p-2 text-center">-</td>
+                    <td class="p-2 text-center">-</td>
+                    <td class="p-2 text-center">
+                        <button class="text-red-500">🗑️</button>
+                    </td>
+                </tr>
+                <tr class="border border-gray-300">
+                    <td class="p-2 text-center">24</td>
+                    <td class="p-2 text-center">Crown Screwed/Custom Abutment</td>
+                    <td class="p-2 text-center">Lorem Ipsum</td>
+                    <td class="p-2 text-center">Lorem Ipsum</td>
+                    <td class="p-2 text-center">Lorem Ipsum</td>
+                    <td class="p-2 text-center">Lorem Ipsum</td>
+                    <td class="p-2 text-center">
+                        <button class="text-blue-500">✏️</button>
+                        <button class="text-red-500">🗑️</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="flex gap-20 ">
+
+
+            <div class="w-5/12">
+
+                <div class="mb-4">
+                    <label class="block mb-2">Upload File</label>
+                    <button class="px-4 py-2 bg-gray-200 rounded ">Add attachment</button>
+                    <p class="text-gray-500">No file has been uploaded.</p>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block mb-2">Comment/Message</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="w-7/12">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="border p-4 bg-gray-100 rounded">
+                        <h3 class="font-bold">Lorem Dental Lab</h3>
+                        <p>John Doe</p>
+                        <p>Larga Lorenzo Maggio, 33</p>
+                        <p>90146, Palermo, Italy</p>
+                        <p>+39 329 49 00 000</p>
+                    </div>
+                    <div class="border p-4 bg-gray-100 rounded">
+                        <h3 class="font-bold">Ipsum Center</h3>
+                        <p>Don Joe</p>
+                        <p>124, Triq Lorem Ipsum</p>
+                        <p>Zebbug, Malta</p>
+                        <p>+356 329 49 00 000</p>
+                    </div>
+                    <div class="border p-4 bg-gray-100 rounded">
+                        <h3 class="font-bold">Lorem Dental Lab</h3>
+                        <p>John Doe</p>
+                        <p>Larga Lorenzo Maggio, 33</p>
+                        <p>90146, Palermo, Italy</p>
+                        <p>+39 329 49 00 000</p>
+                    </div>
+                    <div class="border p-4 bg-gray-100 rounded text-center flex justify-center items-center">
+                        <h3 class="font-bold text-xl"><p>+ Add new content</p></h3>
+                        
+                    </div>
+                </div>
+
+                <div class="flex justify-between">
+                    <button class="px-4 py-2 bg-gray-300 rounded">Edit Order</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded">Confirm & Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

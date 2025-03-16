@@ -1,0 +1,563 @@
+<div id="detail_sec_contect" class="detail_sec">
+    <div class="page-width">
+      <div class="detail_sec_items">
+        <div class="detail_sec_right d-none">
+           <div class="detail_sec_right_items">
+             {% if section.settings.image != blank %}
+             {{ section.settings.image | img_url: 'master' | img_tag }}
+             {% endif %}
+           </div>
+        </div>
+        
+        <div class="detail_sec_left">
+            {% comment %}
+              <div class="detail_left_sign_btn">
+                 <a href="{{ section.settings.sign_url }}">{{ section.settings.sign_btntext }}</a>
+              </div>
+            {% endcomment %}
+            <div class="main_title">
+               {{ section.settings.title }}
+            </div>
+            <div class="sub_titel">
+               {{ section.settings.sub_titel }}
+            </div>
+            <div class="detail_sec_right_items m-none">
+             {% if section.settings.imagem != blank %}
+             {{ section.settings.imagem | img_url: 'master' | img_tag }}
+             {% endif %}
+           </div>
+ 
+           {%- form 'contact', id: 'dogInfoForm' -%}
+ 
+             {% comment %}<div class="dog-form-toggle">
+                 <label class="dog-radio ">
+                     <input  id="Ialreadyhavemydog" type="radio" name="contact[Have Dog?]" value="Yes">
+                     <span>{{ section.settings.Ialreadyhavemydog }}</span>
+                 </label>
+ 
+                 <label class="dog-radio">
+                     <input id="Idonthavemydogyet" type="radio" name="contact[Have Dog?]" value="No">
+                     <span>{{ section.settings.Idonthavemydogyet }}</span>
+                 </label>
+             </div> {% endcomment %}
+             
+           
+             <div class="dog-form-group hide_contect1">
+                 <div class="dog-radiofest">
+                     <label>{{ section.settings.Whatisyourdogsname }}</label>
+                     <input type="text" name="contact[Your dog's name]" placeholder="{{ section.settings.Yourdogsname }}">
+                 </div>
+                 <div class="dog-radiofest_twoo">
+                     <label>{{ section.settings.Whatisyourdogsbreed }}</label>
+                     <input type="text" name="contact[Your dog's breed]" placeholder="{{ section.settings.Yourdogsbreed }}">
+                 </div>
+             </div>   
+ 
+             <div class="dog-form-group hide_contect2">
+                 <div class="dog-radiofest">
+                     <label style="height: 2.5em;">{{ section.settings.Whatisyourdogsname1 }}</label>
+                     <input type="text" name="contact[What do you plan to call your dog?]" placeholder="{{ section.settings.Yourdogsname }}">
+                 </div>
+ 
+                 <div class="dog-radiofest_twoo">
+                     <label style="height: 2em;">{{ section.settings.Whatisyourdogsbreed1 }}</label>
+                     <input type="text" name="contact[What is your dog’s breed?]" placeholder="{{ section.settings.Yourdogsbreed }}">
+                 </div>
+             </div>    
+ 
+             <div class="dog-form-group hide_contect1">
+                 <div class="dog-radiofest">
+                     <label>{{ section.settings.Howoldisyourdoginmonths }}</label>
+                     <!-- <input hidden id="Howoldisyourdoginmonths" name="contact[Your best guess is OK]" value="{{ section.settings.YourbestguessisOK }}"> -->
+                     <div class="custom-date-picker">
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle month-toggle"><span>Month</span></button>
+                             <ul class="dropdown-menu month-menu">
+                                 {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
+                                 {% for month in months %}
+                                     <li data-value="{{ month }}">
+                                         {{ month }}
+                                     </li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]">
+                         </div>
+                     
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle year-toggle"><span>Year</span></button>
+                             <ul class="dropdown-menu year-menu">
+                                 {% assign current_year = "now" | date: "%Y" %}
+                                 {% assign start_year = 2000 %}
+                                 {% for year in (start_year..current_year) reversed %}
+                                     <li data-value="{{ year }}">{{ year }}</li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedYear">
+                         </div>
+                     </div>
+                 </div>
+ 
+                 <div class="dog-radiofest_twoo">
+                     <label>{{ section.settings.Whatdatedidyou }}</label>
+                     <!-- <input hidden id="Whatdatedidyou" type="button" name="contact[Your best guess is OK]" value="{{ section.settings.YourbestguessisOK }}"> -->
+                     <div class="custom-date-picker">
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle month-toggle"><span>Month</span></button>
+                             <ul class="dropdown-menu month-menu">
+                                 {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
+                                 {% for month in months %}
+                                     <li data-value="{{ month }}">
+                                         {{ month }}
+                                     </li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedMonth">
+                         </div>
+                     
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle year-toggle"><span>Year</span></button>
+                             <ul class="dropdown-menu year-menu">
+                                 {% assign current_year = "now" | date: "%Y" | plus: 1 %}
+                                 {% assign start_year = 2000 %}
+                                 {% for year in (start_year..current_year) reversed %}
+                                     <li data-value="{{ year }}">{{ year }}</li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedYear">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+           
+             <div class="dog-form-group hide_contect2">
+                 <div class="dog-radiofest">
+                     <label style="height: 3.6em;">{{ section.settings.Howoldisyourdoginmonths1 }}</label>
+                     <!-- <input hidden id="Howoldisyourdoginmonths" name="contact[Your best guess is OK]" value="{{ section.settings.YourbestguessisOK }}"> -->
+                     <div class="custom-date-picker">
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle month-toggle"><span>Month</span></button>
+                             <ul class="dropdown-menu month-menu">
+                                 {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
+                                 {% for month in months %}
+                                     <li data-value="{{ month }}">
+                                         {{ month }}
+                                     </li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedMonth">
+                         </div>
+                     
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle year-toggle"><span>Year</span></button>
+                             <ul class="dropdown-menu year-menu">
+                                 {% assign current_year = "now" | date: "%Y" %}
+                                 {% assign start_year = 2000 %}
+                                 {% for year in (start_year..current_year) reversed %}
+                                     <li data-value="{{ year }}">{{ year }}</li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedYear">
+                         </div>
+                     </div>
+                 </div>
+ 
+                 <div class="dog-radiofest_twoo">
+                     <label style="height: 3.6em;">{{ section.settings.Whatdatedidyou1 }}</label>
+                     <!-- <input hidden id="Whatdatedidyou" name="contact[Your best guess is OK]" value="{{ section.settings.YourbestguessisOK }}"> -->
+                     <div class="custom-date-picker">
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle month-toggle"><span>Month</span></button>
+                             <ul class="dropdown-menu month-menu">
+                                 {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
+                                 {% for month in months %}
+                                     <li data-value="{{ month }}">
+                                         {{ month }}
+                                     </li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedMonth">
+                         </div>
+                     
+                         <div class="custom-dropdown">
+                             <button type="button" class="dropdown-toggle year-toggle"><span>Year</span></button>
+                             <ul class="dropdown-menu year-menu">
+                                 {% assign current_year = "now" | date: "%Y" | plus: 1 %}
+                                 {% assign start_year = 2000 %}
+                                 {% for year in (start_year..current_year) reversed %}
+                                     <li data-value="{{ year }}">{{ year }}</li>
+                                 {% endfor %}
+                             </ul>
+                             <input class="hidden" type="hidden" name="contact[Your best guess is OK]" id="selectedYear">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         
+             <h3>{{ section.settings.Yourpersonaldetails }}</h3>
+         
+             <div  class="dog-form-group mmmm inputselect dog-form-groupbottom">
+                 <input type="text" name="contact[name]" placeholder="{{ section.settings.Fullname }}" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                 <input type="email" name="contact[email]" placeholder="{{ section.settings.Email }}" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+             </div>
+         
+             <div class="dog-form-group full-width inputselect mmm_m dog-form-groupbottom">
+                 <input type="text" name="contact[address]" placeholder="{{ section.settings.Address }}">
+             </div>
+         
+             <div class="dog-form-checkbox inputselect">
+                 <input type="checkbox" name="subscribe">
+                 <label>{{ section.settings.Contactuserfromtime }}</label>
+             </div>
+         
+             <button type="submit"  class="dog-form-submit">{{ section.settings.Submit }}</button>
+             {%- endform -%}
+         </div>
+        
+      </div>
+    </div>
+ 
+    <svg class="top_svg svg_scor d-none" xmlns="http://www.w3.org/2000/svg" width="1440" height="678" viewBox="0 0 1440 678" fill="none">
+     <path d="M-410 40.9724C-334.842 43.6147 -259.683 46.257 -186.988 51.5895C-114.293 56.9219 -44.0589 64.9418 29.3863 51.5895C102.831 38.2371 179.489 3.50981 255.053 2.48526C330.617 1.46071 405.085 34.1376 478.065 40.9724C551.044 47.8071 622.532 28.7958 695.767 15.7567C769.001 2.71751 843.981 -4.3535 917.451 18.411C990.921 41.1754 1062.88 93.7727 1135.15 86.0951C1207.42 78.4176 1280 10.4654 1354.18 1.15812C1428.36 -8.14912 1504.14 41.186 1578.52 58.2252C1652.9 75.2643 1725.88 60.0049 1800.21 48.9352C1874.53 37.8655 1950.21 30.9843 2024.54 30.3552C2098.89 29.7262 2171.89 35.3493 2298 40.9724L2244.9 678H-410V40.9724Z" fill="#F1EAE6"/>
+   </svg>
+ 
+   <svg class="bottom_svg svg_scor d-none" xmlns="http://www.w3.org/2000/svg" width="1440" height="701" viewBox="0 0 1440 701" fill="none">
+     <path d="M2373 663.09C2303.59 660.645 2234.17 658.2 2167.04 653.267C2099.9 648.333 2035.03 640.912 1967.2 653.267C1899.37 665.621 1828.57 697.753 1758.78 698.7C1689 699.648 1620.22 669.414 1552.82 663.09C1485.42 656.766 1419.39 674.356 1351.76 686.421C1284.12 698.486 1214.87 705.028 1147.02 683.965C1079.17 662.902 1012.7 614.236 945.959 621.34C879.213 628.444 812.181 691.317 743.672 699.928C675.163 708.54 605.176 662.892 536.481 647.127C467.787 631.361 400.386 645.48 331.743 655.722C263.099 665.965 193.209 672.332 124.552 672.914C55.8945 673.496 -11.5332 668.293 -128 663.09L-78.9607 0H2373V663.09Z" fill="#F1EAE6"/>
+   </svg>
+ 
+ 
+   <svg class="top_svgm svg_scor m-none" xmlns="http://www.w3.org/2000/svg" width="360" height="638" viewBox="0 0 360 638" fill="none">
+     <path d="M-821.992 13.8805C-772.035 14.7756 -722.077 15.6708 -673.757 17.4773C-625.437 19.2838 -578.753 22.0007 -529.934 17.4773C-481.116 12.9538 -430.162 1.18904 -379.935 0.841947C-329.708 0.494853 -280.211 11.565 -231.702 13.8805C-183.193 16.1959 -135.675 9.75534 -86.9968 5.33798C-38.3185 0.920628 11.5201 -1.47486 60.3555 6.23719C109.191 13.9492 157.025 31.7679 205.063 29.167C253.101 26.566 301.344 3.54541 350.65 0.392343C399.957 -2.76073 450.328 13.9528 499.767 19.7253C549.207 25.4978 597.716 20.3282 647.119 16.5781C696.523 12.8279 746.823 10.4967 796.236 10.2836C845.65 10.0705 894.178 11.9755 978 13.8805L942.697 638H-822L-821.992 13.8805Z" fill="#F1EAE6"/>
+   </svg>
+ 
+   <svg class="bottom_svgm svg_scor m-none" xmlns="http://www.w3.org/2000/svg" width="360" height="847" viewBox="0 0 360 847" fill="none">
+     <path d="M1314 819.787C1264.51 818.048 1215.03 816.308 1167.16 812.798C1119.3 809.288 1073.06 804.008 1024.7 812.798C976.342 821.588 925.869 844.45 876.116 845.124C826.363 845.799 777.332 824.287 729.281 819.787C681.23 815.288 634.16 827.803 585.942 836.387C537.723 844.971 488.355 849.626 439.98 834.64C391.606 819.654 344.225 785.028 296.641 790.082C249.057 795.137 201.269 839.871 152.428 845.998C103.587 852.125 53.6917 819.647 4.71863 808.43C-44.2544 797.212 -92.3054 807.258 -141.243 814.545C-190.18 821.833 -240.005 826.363 -288.952 826.777C-337.899 827.191 -385.969 823.489 -469 819.787L-434.039 0.5H1314V819.787Z" fill="#F1EAE6"/>
+   </svg>
+ </div>
+ 
+ 
+ 
+ <script>
+ document.addEventListener("DOMContentLoaded", function () {
+     var radio = document.getElementById("Ialreadyhavemydog");
+     var content = document.querySelectorAll(".hide_contect1");
+ 
+     var radio1 = document.getElementById("Idonthavemydogyet");
+     var content1 = document.querySelectorAll(".hide_contect2");
+ 
+     if (radio && radio1) { 
+         radio.addEventListener("change", function () {
+             if (radio.checked) {
+                 content.forEach(el => {
+                     el.style.display = "flex";
+                     el.classList.add("inputselect");
+                 });
+ 
+                 content1.forEach(el => {
+                     el.style.display = "none";
+                     el.classList.remove("inputselect"); 
+                 });
+             }
+         });
+ 
+         radio1.addEventListener("change", function () {
+             if (radio1.checked) {
+                 content1.forEach(el => {
+                     el.style.display = "flex";
+                     el.classList.add("inputselect");
+                 });
+ 
+                 content.forEach(el => {
+                     el.style.display = "none";
+                     el.classList.remove("inputselect"); 
+                 });
+             }
+         });
+     }
+ });
+ 
+ 
+ 
+ document.addEventListener("DOMContentLoaded", function () {
+     document.querySelectorAll(".dropdown-toggle").forEach(button => {
+         button.addEventListener("click", function () {
+             let dropdown = this.nextElementSibling;
+             dropdown.classList.toggle("show");
+         });
+     });
+ 
+     document.querySelectorAll(".dropdown-menu li").forEach(item => {
+     item.addEventListener("click", function () {
+         let dropdown = this.closest(".custom-dropdown");
+         let button = dropdown.querySelector(".dropdown-toggle");
+         let input = dropdown.querySelector("input[type='hidden']"); 
+         
+         if (input) { 
+             button.textContent = this.textContent;
+             input.value = this.getAttribute("data-value");
+             
+             console.log("Selected Value:", input.value);
+         } else {
+             console.error("Hidden input not found inside dropdown!"); 
+         }
+ 
+         dropdown.querySelector(".dropdown-menu").classList.remove("show");
+     });
+ });
+ 
+ 
+     document.addEventListener("click", function (e) {
+         if (!e.target.matches(".dropdown-toggle")) {
+             document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                 menu.classList.remove("show");
+             });
+         }
+     });
+ });
+ 
+ 
+ 
+ 
+ document.addEventListener("DOMContentLoaded", function () {
+     const form = document.querySelector("form");
+     const submitButton = document.querySelector("button[type='submit']");
+ 
+     submitButton.addEventListener("click", function (event) {
+         let allActiveInputs = document.querySelectorAll(".dog-form-group.inputselect input:not([type='radio'])");
+         let allDropdowns = document.querySelectorAll(".custom-dropdown .dropdown-toggle");
+         let isValid = true;
+ 
+         console.clear();
+ 
+         allActiveInputs.forEach(input => {
+             let value = input.value.trim();
+             console.log(`Checking input: ${input.name}, Value: '${value}'`);
+ 
+             if (value === "") {
+                 input.style.border = "2px solid red"; 
+                 isValid = false;
+             } else {
+                 input.style.border = "0px solid #ccc"; 
+             }
+ 
+             input.addEventListener("input", function () {
+                 if (input.value.trim() !== "") {
+                     input.style.border = "1px solid #ccc";
+                 }
+             });
+         });
+ 
+         allDropdowns.forEach(dropdown => {
+             let relatedInput = dropdown.closest(".custom-dropdown").querySelector("input[type='hidden']");
+             let parentGroup = dropdown.closest(".dog-form-group");
+ 
+             if (parentGroup && parentGroup.classList.contains("inputselect")) {
+                 if (!relatedInput || relatedInput.value.trim() === "") {
+                     console.log(`Dropdown validation failed: ${dropdown.textContent}`);
+                     dropdown.style.border = "2px solid red"; 
+                     isValid = false;
+                 } else {
+                     dropdown.style.border = "0px solid #ccc"; 
+                 }
+ 
+                 dropdown.addEventListener("click", function () {
+                     dropdown.style.border = "0px solid #ccc";
+                 });
+             }
+         });
+ 
+         if (!isValid) {
+             console.log("🚨 Form has errors, submission blocked!");
+             event.preventDefault(); 
+         } else {
+             console.log("✅ Form is valid, submitting...");
+         }
+     });
+ });
+ 
+ 
+ 
+ 
+ 
+ 
+ </script> 
+ 
+ 
+       
+ {% schema %}
+ {
+     "name": "Detail section",
+     "settings": [
+         {
+             "type": "url",
+             "id": "sign_url",
+             "label": "Sign Up Url"
+         },
+         {
+             "type": "text",
+             "id": "Ialreadyhavemydog",
+             "label": "I already have my dog",
+             "default": "I already have my dog"
+         },
+         {
+             "type": "text",
+             "id": "Idonthavemydogyet",
+             "label": "I don’t have my dog yet",
+             "default": "I don’t have my dog yet"
+         },
+         {
+             "type": "text",
+             "id": "Whatisyourdogsname",
+             "label": "What is your dog's name?",
+             "default": "What is your dog's name?"
+         },
+         {
+             "type": "text",
+             "id": "Whatisyourdogsbreed",
+             "label": "What is your dog's breed?",
+             "default": "What is your dog's breed?"
+         },
+ 
+ 
+         {
+             "type": "text",
+             "id": "Whatisyourdogsname1",
+             "label": "What do you plan to call your dog?",
+             "default": "What do you plan to call your dog?"
+         },
+         {
+             "type": "text",
+             "id": "Whatisyourdogsbreed1",
+             "label": "What is your dog's breed?",
+             "default": "What is your dog’s breed?"
+         },
+ 
+ 
+         {
+             "type": "text",
+             "id": "Howoldisyourdoginmonths",
+             "label": "When was your dog born?",
+             "default": "When was your dog born?"
+         },
+         {
+             "type": "text",
+             "id": "Whatdatedidyou",
+             "label": "When did you bring them home?",
+             "default": "When did you bring them home?"
+         },
+ 
+ 
+ 
+         {
+             "type": "text",
+             "id": "Howoldisyourdoginmonths1",
+             "label": "When was your dog born or when will it be born?",
+             "default": "When was your dog born or when will it be born?"
+         },
+         {
+             "type": "text",
+             "id": "Whatdatedidyou1",
+             "label": "When will you bring them home?",
+             "default": "When will you bring them home (or if you haven’t brought them home yet, when do you plan to bring them home)?"
+         },
+ 
+ 
+         {
+             "type": "text",
+             "id": "Fullname",
+             "label": "Full name",
+             "default": "Full name"
+         },
+         {
+             "type": "text",
+             "id": "Email",
+             "label": "Email",
+             "default": "Email"
+         },
+         {
+             "type": "text",
+             "id": "Address",
+             "label": "Address",
+             "default": "Address"
+         },
+         {
+             "type": "text",
+             "id": "Yourpersonaldetails",
+             "label": "Your personal details",
+             "default": "Your personal details"
+         },
+         {
+             "type": "text",
+             "id": "Contactuserfromtime",
+             "label": "Contact user from",
+             "default": "Contact user from time to time about the status of their pack and any other news"
+         },
+         {
+             "type": "text",
+             "id": "Submit",
+             "label": "Submit",
+             "default": "Submit"
+         },
+         {
+             "type": "text",
+             "id": "Yourdogsname",
+             "label": "Your dog's name",
+             "default": "Your dog's name"
+         },
+         {
+             "type": "text",
+             "id": "Yourdogsbreed",
+             "label": "Your dog's breed",
+             "default": "Your dog's breed"
+         },
+         {
+             "type": "text",
+             "id": "YourbestguessisOK",
+             "label": "Your best guess is OK",
+             "default": "Your best guess is OK",
+         },
+         {
+             "type": "text",
+             "id": "sign_btntext",
+             "label": "Sign Button Text"
+         },
+         {
+             "type": "richtext",
+             "id": "title",
+             "label": "Title"
+         },
+         {
+             "type": "richtext",
+             "id": "sub_titel",
+             "label": "Sub titel"
+         },
+         {
+             "type": "text",
+             "id": "f_btn_text",
+             "label": "First Button Text"
+         },
+         {
+             "type": "text",
+             "id": "s_btn_text",
+             "label": "Second Button Text"
+         },
+         {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+         },
+         {
+             "type": "image_picker",
+             "id": "imagem",
+             "label": "Mobile Image"
+         }
+     ],
+     "presets": [
+         {
+             "category": "other",
+             "name":"Detail section"
+         }
+     ]
+ }
+ {% endschema %}
+ 
+ 
